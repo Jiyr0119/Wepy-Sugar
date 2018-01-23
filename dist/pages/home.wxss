@@ -1,0 +1,2 @@
+@import "./../components/search.wxss";
+.userinfo{display:flex;flex-direction:column;align-items:center}.userinfo-avatar{width:80rpx;height:80rpx;border-radius:50%}.userinfo-nickname{color:#aaa}.pos{position:fixed;top:0;left:0;right:0;padding:20rpx;background:#ffffff}.pos .search_content{background:rgba(0,0,0,0.1);border:1px solid #efefee}.pos .search_content .icon-search,.pos .search_content .search_input{color:gray}.pos .message{display:block;text-align:center;margin-left:20rpx}.pos .doc{font-size:16rpx;display:block}

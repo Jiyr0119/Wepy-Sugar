@@ -1,0 +1,18 @@
+
+  <view class="container">
+		<view class="pos">
+			<view class="search_read_only">
+			<navigator class="search_content" open-type="navigate" url="/pages/search">
+				<i class="iconfont icon-search"/>
+				<view class="search_input">搜索商品</view>
+			</navigator>
+			</view>
+		</view>
+		<swiper class="swiper" indicator-active-color="{{indicatorActiveColor}}" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true">
+			<block  wx:for="{{adList}}" wx:key="key">
+				<swiper-item>
+				<image src="{{item.picUrl}}" class="slide-image" bindtap="goToAdvert" data-wpygotoadvert-a="{{item.advertUrl}}"/>
+				</swiper-item>
+			</block>
+		</swiper>
+  </view>
