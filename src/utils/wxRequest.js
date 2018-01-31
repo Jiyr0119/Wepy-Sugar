@@ -10,14 +10,14 @@ const SIGN = md5.hex_md5((TIMESTAMP + API_SECRET_KEY).toLowerCase())
 const wxRequest = async(params = {}, url) => {
     tip.loading();
     let data = params.query || {};
-    data.sign = SIGN;
-    data.time = TIMESTAMP;
     let res = await wepy.request({
         url: url,
-        method:'POST',
+        method: params.method || 'GET',
         data: data,
         header: { 'Content-Type': 'application/json' },
     });
+    console.log(res);
+    
     tip.loaded();
     return res;
 };

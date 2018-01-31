@@ -1,18 +1,58 @@
 
   <view class="container">
-		<view class="pos">
-			<view class="search_read_only">
-			<navigator class="search_content" open-type="navigate" url="/pages/search">
-				<i class="iconfont icon-search"/>
-				<view class="search_input">搜索商品</view>
-			</navigator>
-			</view>
-		</view>
-		<swiper class="swiper" indicator-active-color="{{indicatorActiveColor}}" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true">
-			<block  wx:for="{{adList}}" wx:key="key">
-				<swiper-item>
-				<image src="{{item.picUrl}}" class="slide-image" bindtap="goToAdvert" data-wpygotoadvert-a="{{item.advertUrl}}"/>
-				</swiper-item>
-			</block>
-		</swiper>
+	<view class="pos">
+      <view class="search_read_only">
+        <navigator class="search_content" open-type="navigate" url="/pages/search">
+          <i class="iconfont icon-search"/>
+          <view class="search_input">搜索商品</view>
+        </navigator>
+      </view>
+    </view>
+    <swiper class="swiper" indicator-active-color="{{indicatorActiveColor}}" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true">
+      <block  wx:for="{{bannerList}}" wx:key="key">
+        <swiper-item>
+          <image src="" class="slide-image" bindtap="goToAdvert" data-wpygotoadvert-a="{{item.advertUrl}}"/>		  
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="nav_list">
+      <navigator open-type="navigate" url="/pages/sign_in">
+        <image src="../images/icon_nav_01_new.png" class="nav_icon"/>
+        <view class="nav_text">签到有礼</view>
+      </navigator>
+      <navigator open-type="navigate" url="/pages/exchange_goods">
+        <image src="../images/icon_nav_02_new.png" class="nav_icon"/>
+        <view class="nav_text">换货专区</view>
+      </navigator>
+      <navigator open-type="navigate" url="/pages/wholesale">
+        <image src="../images/icon_nav_03_new.png" class="nav_icon"/>
+        <view class="nav_text">特价专区</view>
+      </navigator>
+      <navigator open-type="navigate" url="/pages/replenishment_goods">
+        <image src="../images/icon_nav_04_new.png" class="nav_icon"/>
+        <view class="nav_text">我要补货</view>
+      </navigator>
+    </view>
+		<block  wx:for="{{bannerList}}" wx:key="key">
+        	<view class="nav_text">111</view>
+      	</block>
+    <!--发现好商品模块-->
+    <!-- <discover v-bind:list.sync="discoverList"></discover> -->
+    <view class="recommend-title">商品推荐</view>
+    <!--加载更多时动画-->
+    
+    <view class="loadMoreGif"  wx:if="{{$bottomLoadMore$show}}">
+        <image src="../images/loadding.gif"/>
+        <text>{{$bottomLoadMore$message}}</text>
+    </view>
+
+    <!--暂无数据显示-->
+    
+    <view class="empty-placeholder row-center"  wx:if="{{$placeholder$show}}">
+        <image class="icon-xl" src="../images/empty.png"/>
+        <view class="txt">{{$placeholder$message}}</view>
+    </view>
+
+    <!--弹屏  types:0 图片  1：领红包   show 是否显示  @close 关闭回调  @callback 点击图片回调 或确定回调-->
+    <!-- <bombscreen v-bind:types.sync="tps" v-bind:show.sync="is_show_alert" v-on:close="closeAlert" v-on:callback="alertCallback"></bombscreen> -->
   </view>

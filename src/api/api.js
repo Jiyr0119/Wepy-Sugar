@@ -11,9 +11,15 @@ const apiMall = 'https://wstcsd.1haomei.com'
  * @param  {[type]} params [description]
  * @return {[type]}        [description]
  */
-const getCarousel = (params) => wxRequest(params, apiMall + '/html/shop/index.php/WstInterFace/ShopDecoration/getBanner');
+//查询广告列表
+const getBannerList = (params) => wxRequest(params, apiMall + '/html/shop/index.php/WstInterFace/ShopDecoration/getBanner');
+const getTabList = (params) => wxRequest(params, apiMall + '/html/shop/index.php/WstInterFace/CommendCat/getCommendCat');
+
+
+
 
 
 module.exports = {
-  getCarousel
+  getBannerList,
+  getTabList
 }
