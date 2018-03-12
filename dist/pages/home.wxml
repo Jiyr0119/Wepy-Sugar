@@ -9,9 +9,9 @@
       </view>
     </view>
     <swiper class="swiper" indicator-active-color="{{indicatorActiveColor}}" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true">
-      <block  wx:for="{{bannerList}}" wx:key="key">
+      <block  wx:for="{{getBannerList}}" wx:key="{{index}}">
         <swiper-item>
-          <image src="" class="slide-image" bindtap="goToAdvert" data-wpygotoadvert-a="{{item.advertUrl}}"/>		  
+          <image src="{{item.pic_path}}" class="slide-image" bindtap="goToAdvert" data-wpygotoadvert-a=""/>		  
         </swiper-item>
       </block>
     </swiper>

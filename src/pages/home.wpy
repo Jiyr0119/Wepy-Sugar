@@ -9,9 +9,9 @@
       </view>
     </view>
     <swiper class="swiper" indicator-active-color="{{indicatorActiveColor}}" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true">
-      <block wx:for="{{bannerList}}" wx:key="key">
+      <block wx:for="{{getBannerList}}" wx:key="{{index}}">
         <swiper-item>
-          <image src="" class="slide-image" @tap="goToAdvert({{item.advertUrl}})" />		  
+          <image src="{{item.pic_path}}" class="slide-image" @tap="goToAdvert()" />		  
         </swiper-item>
       </block>
     </swiper>
@@ -95,18 +95,20 @@ export default class Home extends wepy.page {
     const json = await api.getBannerList({
       query: {}
     });
-    console.log(json.data.data);
+    console.log(json);
     
-    if (json.data.code == 0) {
-      this.getBannerList = json.data.data;
+    if (json.data.error == 0) {
+      this.bannerList = json.data.data;
       this.$apply();
+      console.log(this.bannerList);
+    
     } else {}
   }
   async getTabList() { 
     const json = await api.getTabList({
       query: {}
     })
-    console.log(json.data.data);
+    // console.log(json.data.data);
   }
   onLoad() {
     this.getBannerList();
